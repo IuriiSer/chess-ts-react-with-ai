@@ -1,34 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { Board } from './lib/models/board/Board';
-import { GameManager } from './lib/models/gameNamager/GameNamager';
+import React, { useMemo, useState } from 'react'
+import { BoardData } from './lib/models/board/Board'
+import { GameManager } from './lib/models/gameMamager/GameManager'
+import BoardDrawer from './components/Board/Board'
 
-function App() {
-	const [board, setBoard] = useState(new Board());
+const App: React.FC = () => {
+  const [board, setBoard] = useState(new BoardData())
+  const gameManager = useMemo<GameManager>(() => new GameManager({ board, setBoard }), [])
 
-  console.log(board);
+  console.log('file: App.tsx ~ line 10 ~ gameManager', gameManager)
 
-  useEffect(()=> {
-    setTimeout(()=> {
-      setBoard(board)
-    }, 10000)
-  })
-
-	return (
-		<div className='App'>
-			<header className='App-header'>
-				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
-				</p>
-				<a
-					className='App-link'
-					href='https://reactjs.org'
-					target='_blank'
-					rel='noopener noreferrer'>
-					Learn React
-				</a>
-			</header>
-		</div>
-	);
+  return (
+    <div className='App'>
+      <header className='App-header'>
+        <BoardDrawer board={board} />
+      </header>
+    </div>
+  )
 }
 
-export default App;
+export default App
