@@ -2,7 +2,7 @@ import { CellData } from './Cell'
 import { CellColors } from './CellColors'
 import { CellCoords } from './CellCoords'
 
-export class BoardData {
+export default class BoardData {
   private readonly _cells: CellData[] = []
   private isInited: boolean = false
   private _cellsCoords: CellCoords = {}

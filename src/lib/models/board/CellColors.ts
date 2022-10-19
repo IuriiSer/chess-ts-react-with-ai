@@ -1,4 +1,4 @@
 export enum CellColors {
-	Light = 'Light',
-	Dark = 'Dark',
+  Light = 'Light',
+  Dark = 'Dark',
 }

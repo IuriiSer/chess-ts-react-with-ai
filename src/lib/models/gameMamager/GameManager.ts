@@ -1,4 +1,4 @@
-import { BoardData } from '../board/Board'
+import BoardData from '../board/Board'
 import React from 'react'
 
 interface newGameManager {
@@ -6,7 +6,7 @@ interface newGameManager {
   setBoard: React.Dispatch<React.SetStateAction<BoardData>>
 }
 
-export class GameManager {
+export default class GameManager {
   private readonly board: BoardData
   private readonly setBoard: React.Dispatch<React.SetStateAction<BoardData>>
 
