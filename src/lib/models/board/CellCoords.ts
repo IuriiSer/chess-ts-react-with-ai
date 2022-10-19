@@ -1,8 +1,4 @@
-export interface CellCoords {
-	[key: string]: CellCoord;
+export interface CellCoord {
+  col: number
+  row: number
 }
-
-type CellCoord = {
-	col: number;
-	row: number;
-};
