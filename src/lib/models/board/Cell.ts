@@ -1,19 +1,21 @@
-import { Figures } from '../figures/Figures'
+import Figure from '../figures/Figure'
 import { CellColors } from './CellColors'
 import { v4 as uuidv4 } from 'uuid'
 
-interface CellProps {
+export type CellID = string
+
+interface ICellData {
   color: CellColors
-  figure?: Figures
+  figure?: Figure
 }
 
 export class CellData {
   readonly color: CellColors
-  readonly id: string = uuidv4()
-  public figure: Figures | null
+  readonly id: CellID = uuidv4()
+  public figure: Figure | null
   public isAvailable: boolean = false
 
-  constructor (props: CellProps) {
+  constructor (props: ICellData) {
     this.color = props.color
     this.figure = (props.figure != null) ? props.figure : null
   }
