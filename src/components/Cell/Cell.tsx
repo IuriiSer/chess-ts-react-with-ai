@@ -1,22 +1,19 @@
 import React from 'react'
 import { CellData } from '../../lib/models/board/Cell'
 
-interface CellProps {
+import { Box } from '@mui/material'
+interface ICell {
   cell: CellData
 }
 
-const Cell: React.FC<CellProps> = ({ cell }: CellProps) => {
+const Cell: React.FC<ICell> = ({ cell }: ICell) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { color, id, figure, isAvailable } = cell
-  console.log('file: Cell.tsx ~ line 11 ~ isAvailable', isAvailable)
-
-  console.log('file: Cell.tsx ~ line 11 ~ figure', figure)
-
-  console.log('file: Cell.tsx ~ line 11 ~ id', id)
 
   return (
-    <>
+    <Box>
       <p>{color}</p>
-    </>
+    </Box>
   )
 }
 

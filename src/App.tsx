@@ -1,7 +1,13 @@
 import React, { useMemo, useState } from 'react'
-import { BoardData } from './lib/models/board/Board'
-import { GameManager } from './lib/models/gameMamager/GameManager'
+
+import './App.scss'
+
+import BoardData from './lib/models/board/Board'
+import GameManager from './lib/models/gameMamager/GameManager'
 import BoardDrawer from './components/Board/Board'
+import ThemeHandler from './components/ThemeHandler/ThemeHandler'
+
+import { Container } from '@mui/material'
 
 const App: React.FC = () => {
   const [board, setBoard] = useState(new BoardData())
@@ -10,11 +16,11 @@ const App: React.FC = () => {
   console.log('file: App.tsx ~ line 10 ~ gameManager', gameManager)
 
   return (
-    <div className='App'>
-      <header className='App-header'>
+    <ThemeHandler>
+      <Container className='App'>
         <BoardDrawer board={board} />
-      </header>
-    </div>
+      </Container>
+    </ThemeHandler>
   )
 }
 

@@ -1,20 +1,19 @@
 import React from 'react'
-import { BoardData } from '../../lib/models/board/Board'
+import BoardData from '../../lib/models/board/Board'
 import Cell from '../Cell/Cell'
 
-interface BoardProps {
+import Container from '@mui/material/Container'
+interface IBoard {
   board: BoardData
 }
 
-const Board: React.FC<BoardProps> = ({ board }: BoardProps) => {
+const Board: React.FC<IBoard> = ({ board }: IBoard) => {
   return (
-    <>
+    <Container maxWidth='lg'>
       {board.cells.map((cell) => (
-        <div key={cell.id}>
-        <Cell cell={cell} />
-        </div>
+        <Cell key={cell.id} cell={cell} />
       ))}
-    </>
+    </Container>
   )
 }
 
